@@ -4,7 +4,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
-  <ItemGroup Label="Shared">
+  <ItemGroup Label="Infrastructure">
     <PackageVersion Include="Autofac" Version="8.0.0" />
   </ItemGroup>
 

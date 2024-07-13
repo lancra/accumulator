@@ -8,12 +8,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		.globalconfig = .globalconfig
+		.runsettings = .runsettings
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
 		global.json = global.json
 		NuGet.config = NuGet.config
 		README.md = README.md
 		stylecop.json = stylecop.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{49E79721-1604-4CFD-8F7C-184F3384B5B7}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Directory.Build.props = tests\Directory.Build.props
+		tests\TestingSuppressions.cs = tests\TestingSuppressions.cs
+		tests\xunit.runner.json = tests\xunit.runner.json
 	EndProjectSection
 EndProject
 Global
@@ -23,5 +31,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1EDDA96-A307-444F-B1A1-2B750455E469}
 	EndGlobalSection
 EndGlobal

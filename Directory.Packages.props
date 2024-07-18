@@ -4,6 +4,10 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
+  <ItemGroup Label="Domain">
+    <PackageVersion Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
   <ItemGroup Label="Infrastructure">
     <PackageVersion Include="Autofac" Version="8.0.0" />
   </ItemGroup>

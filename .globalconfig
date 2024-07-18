@@ -1,8 +1,13 @@
 # lancra/dotnet-analyzers@a77cd4fb27b578c23e74a8907d39c7c87afa2aee
 is_global = true
 
+# Sonar
 # https://github.com/SonarSource/sonar-dotnet/issues/8024
 dotnet_diagnostic.AD0001.severity = none
+dotnet_diagnostic.S1694.severity = none
+dotnet_diagnostic.S3249.severity = none
+dotnet_diagnostic.S4023.severity = none
+dotnet_diagnostic.S4035.severity = none
 
 # .NET Style: <https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/>
 dotnet_diagnostic.IDE0001.severity = warning

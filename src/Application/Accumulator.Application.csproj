@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Domain\Accumulator.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+  </ItemGroup>
+
 </Project>

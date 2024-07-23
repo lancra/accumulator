@@ -9,6 +9,9 @@ dotnet_diagnostic.S3249.severity = none
 dotnet_diagnostic.S4023.severity = none
 dotnet_diagnostic.S4035.severity = none
 
+# .NET Quality
+dotnet_diagnostic.CA1032.severity = none
+
 # .NET Style: <https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/>
 dotnet_diagnostic.IDE0001.severity = warning
 dotnet_diagnostic.IDE0002.severity = warning

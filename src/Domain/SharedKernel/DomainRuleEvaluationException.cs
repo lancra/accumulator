@@ -1,11 +1,8 @@
-using System.Diagnostics.CodeAnalysis;
-
 namespace Accumulator.Domain.SharedKernel;
 
 /// <summary>
 /// Provides the exception thrown when a domain rule is broken.
 /// </summary>
-[SuppressMessage("Design", "CA1032:Implement standard exception constructors", Justification = "Unnecessary for this exception type.")]
 public class DomainRuleEvaluationException : Exception
 {
     /// <summary>

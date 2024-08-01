@@ -1,6 +1,5 @@
 using Autofac;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
 
 namespace Accumulator.Infrastructure.Modules.Data;
@@ -21,12 +20,11 @@ internal sealed class DataModule : Module
         builder.Register(
             component =>
             {
-                var options = new DbContextOptionsBuilder<AccumulatorDbContext>()
+                var builder = new DbContextOptionsBuilder<AccumulatorDbContext>()
                     .UseSqlite(_connectionString)
-                    .UseLoggerFactory(_loggerFactory)
-                    .ReplaceService<IValueConverterSelector, TypedIdValueConverterSelector>()
-                    .Options;
-                return new AccumulatorDbContext(options);
+                    .UseLoggerFactory(_loggerFactory);
+                builder.UseTypedIdValueConverterSelector();
+                return new AccumulatorDbContext(builder.Options);
             })
             .AsSelf()
             .InstancePerLifetimeScope();

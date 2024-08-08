@@ -4,6 +4,7 @@ is_global = true
 # Sonar
 # https://github.com/SonarSource/sonar-dotnet/issues/8024
 dotnet_diagnostic.AD0001.severity = none
+dotnet_diagnostic.S107.severity = none
 dotnet_diagnostic.S1694.severity = none
 dotnet_diagnostic.S3249.severity = none
 dotnet_diagnostic.S4023.severity = none

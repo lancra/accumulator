@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.SmartEnum" />
     <PackageReference Include="MediatR" />
   </ItemGroup>
 

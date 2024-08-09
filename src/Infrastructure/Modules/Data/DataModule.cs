@@ -20,10 +20,11 @@ internal sealed class DataModule : Module
         builder.Register(
             component =>
             {
-                var builder = new DbContextOptionsBuilder<AccumulatorDbContext>()
-                    .UseSqlite(_connectionString)
+                var builder = new DbContextOptionsBuilder<AccumulatorDbContext>();
+                builder.UseAccumulatorSqlite(_connectionString)
+                    .UseTypedIdValueConverterSelector()
                     .UseLoggerFactory(_loggerFactory);
-                builder.UseTypedIdValueConverterSelector();
+
                 return new AccumulatorDbContext(builder.Options);
             })
             .AsSelf()

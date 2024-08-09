@@ -1,6 +1,5 @@
 using Accumulator.Infrastructure;
 using Accumulator.Infrastructure.Modules.Data;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,9 +8,9 @@ var builder = Host.CreateApplicationBuilder();
 
 builder.Configuration.AddEnvironmentVariables(AccumulatorEnvironmentVariables.Prefix);
 
-var connectionString = builder.Configuration.GetValue<string>(AccumulatorEnvironmentVariables.Database);
+var connectionString = builder.Configuration.GetDatabaseConnectionString();
 builder.Services.AddDbContext<AccumulatorDbContext>(options => options
-    .UseSqlite(connectionString)
+    .UseAccumulatorSqlite(connectionString)
     .UseTypedIdValueConverterSelector());
 
 var app = builder.Build();

@@ -11,6 +11,9 @@ internal static class ArtifactPaths
 {
     public const string Root = "artifacts";
 
+    public const string DatabaseMigrations = $"{Root}/db";
+    public const string DatabaseMigrationBundle = $"{DatabaseMigrations}/efbundle.exe";
+
     public const string PublishedExecutables = $"{Root}/publish";
     public static readonly CompositeFormat PublishedExecutableFormat = CompositeFormat.Parse($"{PublishedExecutables}/{{0}}");
 

@@ -1,20 +1,12 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)]
-    [ValidateSet('add', 'changes', 'drop', 'remove', 'update')]
+    [ValidateSet('add', 'bundle', 'changes', 'list', 'remove')]
     [string]$Action,
     [Parameter()]
     [string]$Name,
     [switch]$IncludeBuild
 )
-
-$expandedAction = switch ($Action.ToLower()) {
-    'add' { "migrations add $Name" }
-    'changes' { 'migrations has-pending-model-changes' }
-    'drop' { 'database drop --force' }
-    'remove' { "migrations remove" }
-    'update' { 'database update' }
-}
 
 $rootPath = Resolve-Path -Path (Join-Path -Path $PSScriptRoot -ChildPath '..')
 $projectPath = Join-Path -Path $rootPath -ChildPath 'src' -AdditionalChildPath 'Migrations'
@@ -22,6 +14,17 @@ $startupPath = Join-Path -Path $rootPath -ChildPath 'tools' -AdditionalChildPath
 
 $noBuildFlag = $IncludeBuild ? '' : ' --no-build'
 
-$command = "dotnet ef $expandedAction --project $projectPath --startup-project $startupPath$noBuildFlag"
+$toolCommandFormat = "dotnet ef migrations {0} --project $projectPath --startup-project $startupPath --configuration Release$noBuildFlag"
+
+$bundlePath = Join-Path -Path $rootPath -ChildPath 'artifacts' -AdditionalChildPath 'db', 'efbundle.exe'
+
+$command = switch ($Action.ToLower()) {
+    'add' { $toolCommandFormat -f "add $Name" }
+    'bundle' { "$bundlePath --connection '$env:ACCUMULATOR_DATABASE' $Name" }
+    'changes' { $toolCommandFormat -f 'has-pending-model-changes' }
+    'list' { $toolCommandFormat -f 'list' }
+    'remove' { $toolCommandFormat -f 'remove' }
+}
+
 Write-Verbose "Executing '$command'"
 Invoke-Command -ScriptBlock ([scriptblock]::Create($command))

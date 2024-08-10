@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Ardalis.SmartEnum.EFCore" />
     <PackageReference Include="Autofac" />
+    <PackageReference Include="CsvHelper" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
     <PackageReference Include="Serilog" />
     <PackageReference Include="Serilog.Extensions.Logging" />

@@ -1,4 +1,5 @@
 using Accumulator.Infrastructure.Modules.Data;
+using Accumulator.Infrastructure.Modules.Domain;
 using Accumulator.Infrastructure.Modules.Logging;
 using Accumulator.Infrastructure.Modules.Mediation;
 using Accumulator.Infrastructure.Modules.Processing;
@@ -22,6 +23,7 @@ public static class AccumulatorStartup
     {
         var containerBuilder = new ContainerBuilder();
         containerBuilder.RegisterModule(new DataModule(connectionString, new SerilogLoggerFactory(logger)));
+        containerBuilder.RegisterModule(new DomainModule());
         containerBuilder.RegisterModule(new LoggingModule(logger));
         containerBuilder.RegisterModule(new MediationModule());
         containerBuilder.RegisterModule(new ProcessingModule());

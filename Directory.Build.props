@@ -27,7 +27,8 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
   <ItemGroup Label="Static Analysis">
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)SonarLint.xml" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" />
     <PackageReference Include="Microsoft.Extensions.StaticAnalysis">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

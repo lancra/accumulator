@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:element name="AnalysisInput">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Settings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Setting">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Key" type="xs:string" />
+                    <xs:element name="Value" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Rules">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Rule">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Key" type="xs:string" />
+                    <xs:element name="Parameters">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="Parameter">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Key" type="xs:string" />
+                                <xs:element name="Value" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xsd:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnalysisInput xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Settings>
+    <Setting>
+      <Key>sonar.cs.analyzeGeneratedCode</Key>
+      <Value>false</Value>
+    </Setting>
+  </Settings>
+  <Rules>
+    <Rule>
+      <Key>S103</Key>
+      <Parameters>
+        <Parameter>
+          <Key>maximumLineLength</Key>
+          <Value>135</Value>
+        </Parameter>
+      </Parameters>
+    </Rule>
+  </Rules>
+</AnalysisInput>
